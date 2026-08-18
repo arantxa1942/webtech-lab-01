@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>Arantxa Toledo</title>
+    <script src="script.js" defer></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -16,6 +17,7 @@
                 <li><a href="https://github.com/arantxa1942/webtech-lab-01.git">Repository</a></li>
             </ul>
         </nav>
+        <button id="theme-toggle" type="button" aria-pressed="false">Light mode</button>
     </header>
     
     <main>
@@ -26,7 +28,7 @@
             <p>In my daily life I like to read, draw, play video games and go to the gym</p>
         </section>
 
-        <section id="Skill">
+        <section id="Skills">
             <h2>Skills</h2>
             <ul>
                 <li>English (C1) </li>
@@ -40,7 +42,7 @@
             <h2>Proyectos</h2>
  
             <article>
-                <h3>Low Level Programming: Simulation of celestial bodies </Nav></h3>
+                <h3>Low Level Programming: Simulation of celestial bodies </h3>
                
                 <p><time datetime="2026-06-25">June 25, 2026</time></p>
                 <p>Built a C++ library that simulates a simplified planetary system with a central star, an orbiting gas giant, and a field of asteroids. Using Newtonian gravity and the Euler method for numerical integration. The library handles inelastic collisions and escape velocity, I then made the library callable from Python using SWIG. On top of that, I wrote a Python program using matplotlib to animate the simulation in real time, showing the star, planet and asteroids moving and interacting as the system evolves.</p>
@@ -55,31 +57,58 @@
         
 
         <section id="photo">
-            <h2>Foto</h2>
+            <h2>Photo</h2>
             <figure>
                
                 <img src="imagen/imageAyV.jpg" alt="Two friends smiling at a restaurant table, one making a peace sign ">
                 <figcaption>Lunch with a friend</figcaption>
             </figure>
         </section>
+
+        <section id="books">
+            <h2>Books read</h2>
+            <input type="text" id="filter" placeholder="search by author, genre or title">
+            <p id="no-results" hidden>No books were found</p>
+            <ul id="lists_of_books"></ul>
+            <form id="add_book">
+                <div>
+                    <label for="new-title">Title</label>
+                    <input type="text" id="new-title" required>
+                </div>
+                <div>
+                    <label for="new-author">Author</label>
+                    <input type="text" id="new-author" required>
+                </div>
+                <div>
+                    <label for="new-genre">Genre</label>
+                    <input type="text" id="new-genre" required>
+                </div>
+                <button type="submit">Add book</button>
+            </form>
+        </section>
+       
  
        
         <section id="contact">
-            <h2>Contacto</h2>
-            <form>
+            <h2>Contact</h2>
+            <form id="contact-form" novalidate>
                 <div>
                     <label for="name">Name</label>
-                    <input type="text" id="name" name="name" required>
+                    <input type="text" id="name" name="name" aria-describedby="name-error">
+                    <span id="name-error" class="error"></span>
                 </div>
                 <div>
                     <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required>
+                    <input type="email" id="email" name="email" aria-describedby="email-error">
+                    <span id="email-error" class="error"></span>
                 </div>
                 <div>
-                    <label for="message">mesagge</label>
-                    <textarea id="message" name="message" required></textarea>
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" aria-describedby="message-error"></textarea>
+                    <span id="message-error" class="error"></span>
                 </div>
-                <button type="submit">Enviar</button>
+                <button type="submit">Send</button>
+                <p id="contact-confirmacion" hidden>Your message was received.</p>
             </form>
         </section>
  
@@ -88,7 +117,7 @@
     <footer>
        
         <address>
-            Made by <a href="mailto:amtoled1@miuandes.cl">Arantxa Toledo</a>
+            Made by <a href="mailto:amtoledo1@miuandes.cl">Arantxa Toledo</a>
         </address>
     </footer>
  
